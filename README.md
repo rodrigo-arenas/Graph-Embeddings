@@ -1,2 +1,6 @@
-# GRAPH-CAE
-Graph Convolutional Autoencoders for downstream tasks
+# Graph-Embeddings
+Graph embeddings for downstream tasks
+
+
+
+
