@@ -2,11 +2,11 @@
 
 |Tests|_ |Codecov|_ |PythonVersion|_ |PyPi|_ |Docs|_
 
-.. |Tests| image:: https://github.com/rodrigo-arenas/graph-embeddings/actions/workflows/ci-tests.yml/badge.svg?branch=master
+.. |Tests| image:: https://github.com/rodrigo-arenas/graph-embeddings/actions/workflows/ci-tests.yml/badge.svg?branch=main
 .. _Tests: https://github.com/rodrigo-arenas/Graph-Embeddings/actions/workflows/ci-tests.yml
 
-.. |Codecov| image:: https://codecov.io/gh/rodrigo-arenas/graph-embeddings/branch/master/graphs/badge.svg?branch=master&service=github
-.. _Codecov: https://codecov.io/github/rodrigo-arenas/graph-embeddings?branch=master
+.. |Codecov| image:: https://codecov.io/gh/rodrigo-arenas/graph-embeddings/branch/main/graphs/badge.svg?branch=main&service=github
+.. _Codecov: https://codecov.io/github/rodrigo-arenas/graph-embeddings?branch=main
 
 .. |PythonVersion| image:: https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue
 .. _PythonVersion : https://www.python.org/downloads/
@@ -85,7 +85,7 @@ Contributing
 Contributions are more than welcome!
 There are several opportunities on the ongoing project, so please get in touch if you would like to help out.
 Make sure to check the current issues and also
-the `Contribution guide <https://github.com/rodrigo-arenas/graph-embeddings/blob/master/CONTRIBUTING.md>`_.
+the `Contribution guide <https://github.com/rodrigo-arenas/graph-embeddings/blob/main/CONTRIBUTING.md>`_.
 
 
 
