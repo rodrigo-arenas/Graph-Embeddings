@@ -12,7 +12,7 @@ with open(ver_file) as f:
 
 HERE = pathlib.Path(__file__).parent
 
-README = (HERE / "README.md").read_text()
+README = (HERE / "README.rst").read_text()
 
 setup(
     name="graph-embeddings",
@@ -26,6 +26,7 @@ setup(
     license="MIT",
     classifiers=[
         'License :: OSI Approved :: MIT License',
+        'Development Status :: 4 - Beta',
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -41,6 +42,7 @@ setup(
         'networkx>=2.8.4',
         'stellargraph>=1.2.1',
         'chardet>=5.0.0',
+        'tqdm>=4.64.0',
     ],
     python_requires=">=3.7",
     include_package_data=True,
