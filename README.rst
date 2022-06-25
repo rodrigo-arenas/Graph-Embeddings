@@ -1,31 +1,56 @@
-# Graph-Embeddings
+.. -*- mode: rst -*-
+
+|Tests|_ |Codecov|_ |PythonVersion|_ |PyPi|_ |Docs|_
+
+.. |Tests| image:: https://github.com/rodrigo-arenas/graph-embeddings/actions/workflows/ci-tests.yml/badge.svg?branch=master
+.. _Tests: https://github.com/rodrigo-arenas/Graph-Embeddings/actions/workflows/ci-tests.yml
+
+.. |Codecov| image:: https://codecov.io/gh/rodrigo-arenas/graph-embeddings/branch/master/graphs/badge.svg?branch=master&service=github
+.. _Codecov: https://codecov.io/github/rodrigo-arenas/graph-embeddings?branch=master
+
+.. |PythonVersion| image:: https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue
+.. _PythonVersion : https://www.python.org/downloads/
+
+.. |PyPi| image:: https://badge.fury.io/py/graph-embeddings.svg
+.. _PyPi: https://badge.fury.io/py/graph-embeddings
+
+.. |Docs| image:: https://readthedocs.org/projects/graph-embeddings/badge/?version=latest
+.. _Docs: https://graph-embeddings.readthedocs.io/en/latest/?badge=latest
+
+.. |Contributors| image:: https://contributors-img.web.app/image?repo=rodrigo-arenas/graph-embeddings
+.. _Contributors: https://github.com/rodrigo-arenas/Graph-Embeddings/graphs/contributors
+
+Graph-Embeddings
+################
 Graph embeddings for downstream tasks
 
-# Algorithms:
+Algorithms:
+###########
 
-## StackedNode2Vec
+StackedNode2Vec
+---------------
 
 Computes the Node2Vec representation of each node in a set of graphs.
 
-### Example:
+Example:
 
-```python
-import networkx as nx
-from graph_embeddings.algorithms import StackedNode2Vec
+.. code-block:: python
 
-g1 = nx.DiGraph()
-g2 = nx.DiGraph()
-g1.add_edges_from([("A", "B"), ("B", "C"), ("C", "B"), ("B", "E")])
-g2.add_edges_from([("A", "B"), ("B", "C"), ("C", "B"), ("B", "E")])
+   import networkx as nx
+   from graph_embeddings.algorithms import StackedNode2Vec
 
-graphs = [g1, g2]
-embedding_model = StackedNode2Vec()
-embedding_model.fit(graphs)
+   g1 = nx.DiGraph()
+   g2 = nx.DiGraph()
+   g1.add_edges_from([("A", "B"), ("B", "C"), ("C", "B"), ("B", "E")])
+   g2.add_edges_from([("A", "B"), ("B", "C"), ("C", "B"), ("B", "E")])
 
-embedding_model.get_embeddings()  # ndarray with dimensions (4, 128, 2)
-embedding_model.get_dense_embeddings()  # ndarray with dimensions (2, 512)
+   graphs = [g1, g2]
+   embedding_model = StackedNode2Vec()
+   embedding_model.fit(graphs)
 
-```
+   embedding_model.get_embeddings()  # ndarray with dimensions (4, 128, 2)
+   embedding_model.get_dense_embeddings()  # ndarray with dimensions (2, 512)
+
 
 Changelog
 #########
