@@ -28,7 +28,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Development Status :: 4 - Beta',
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
 
     ],
@@ -44,6 +43,6 @@ setup(
         'chardet>=5.0.0',
         'tqdm>=4.64.0',
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     include_package_data=True,
 )
