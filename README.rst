@@ -73,7 +73,7 @@ Important links
 - Official source code repo: https://github.com/rodrigo-arenas/graph-embeddings/
 - Download releases: https://pypi.org/project/graph-embeddings/
 - Issue tracker: https://github.com/rodrigo-arenas/graph-embeddings/issues
-- Stable documentation: https://graph-embeddings.readthedocs.io/en/stable/
+- Stable documentation: https://graph-embeddings.readthedocs.io/
 
 Source code
 ###########

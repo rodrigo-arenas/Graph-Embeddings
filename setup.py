@@ -32,7 +32,7 @@ setup(
 
     ],
     project_urls={
-        "Documentation": "https://graph-embeddings.readthedocs.io/en/stable/",
+        "Documentation": "https://graph-embeddings.readthedocs.io/",
         "Source Code": "https://github.com/rodrigo-arenas/Graph-Embeddings",
         "Bug Tracker": "https://github.com/rodrigo-arenas/Graph-Embeddings/issues",
     },
