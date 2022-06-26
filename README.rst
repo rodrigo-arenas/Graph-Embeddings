@@ -24,6 +24,15 @@ Graph-Embeddings
 ################
 Graph embeddings for downstream tasks
 
+![graph_embeddings](https://raw.githubusercontent.com/rodrigo-arenas/graph-embeddings/main/docs/images/graph_embeddings.png)
+
+Installation:
+#############
+
+It's advised to install graph-embeddings using a virtual env, inside the env use::
+
+   pip install graph-embeddings
+
 Algorithms:
 ###########
 
@@ -42,14 +51,14 @@ Example:
    g1 = nx.DiGraph()
    g2 = nx.DiGraph()
    g1.add_edges_from([("A", "B"), ("B", "C"), ("C", "B"), ("B", "E")])
-   g2.add_edges_from([("A", "B"), ("B", "C"), ("C", "B"), ("B", "E")])
+   g2.add_edges_from([("A", "B"), ("B", "D"), ("D", "C"), ("C", "D")])
 
    graphs = [g1, g2]
    embedding_model = StackedNode2Vec()
    embedding_model.fit(graphs)
 
-   embedding_model.get_embeddings()  # ndarray with dimensions (4, 128, 2)
-   embedding_model.get_dense_embeddings()  # ndarray with dimensions (2, 512)
+   embedding_model.get_embeddings()  # ndarray with shape (5, 128, 2) - nodes, embedding_size, graphs
+   embedding_model.get_dense_embeddings()  # ndarray with shape (2, 640) - graphs, nodes*embedding_size
 
 
 Changelog

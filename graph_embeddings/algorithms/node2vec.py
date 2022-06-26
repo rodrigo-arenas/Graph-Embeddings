@@ -53,13 +53,17 @@ class StackedNode2Vec:
 
     def fit(self, graphs: List[Union[nx.classes.graph.Graph, StellarGraph]]):
         """
+        Find the Node2Vec representation of each node for each graph.
+
         Parameters
         ----------
         graphs: List[Union[nx.classes.graph.Graph, StellarGraph]]
             List of Networkx or StellarGraph objects
+
         Returns
         -------
         self: object
+            The whole StackedNode2Vec instance
         """
 
         nodes = [set(graph.nodes()) for graph in graphs]
