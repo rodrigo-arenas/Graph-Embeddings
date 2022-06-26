@@ -11,7 +11,7 @@ from tqdm.auto import tqdm
 
 class StackedNode2Vec:
     def __init__(self, node_embeddings_size=128, padding_value=0, window=5,
-                 walk_length: int = 150, n=25, p=0.5, q=2.0, sg=1, n_jobs: int = 1):
+                 walk_length: int = 100, n=25, p=1, q=1, sg=1, n_jobs: int = 1):
         """
         Computes the Node2Vec representation of each node in a set of graphs.
 
@@ -22,15 +22,15 @@ class StackedNode2Vec:
         padding_value: int, default=0
             This number fills the rows in the graph's matrix,
             corresponding to a node that is not present in an individual graph
-        walk_length: int, default=150
+        walk_length: int, default=100
             Maximum length of each random walk
         window: int, default=5
             Maximum distance between the current and predicted word within a sentence.
         n: int, default=25
             Total number of random walks per root node
-        p: float, default=0.5
+        p: float, default=1
             Defines probability, 1/p, of returning to source node
-        q: float, default=2.0
+        q: float, default=1
             Defines probability, 1/q, for moving to a node away from the source node
         sg: {0, 1}
             Training algorithm: 1 for skip-gram; otherwise CBOW.
@@ -97,6 +97,7 @@ class StackedNode2Vec:
             )
 
             str_walks = [[str(n) for n in walk] for walk in walks]
+
             model = Word2Vec(str_walks,
                              vector_size=self.node_embeddings_size,
                              window=self.window,
