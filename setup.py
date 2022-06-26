@@ -19,7 +19,7 @@ setup(
     version=__version__,
     description="Graph embeddings for downstream tasks",
     long_description=README,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     url="https://github.com/rodrigo-arenas/Graph-Embeddings",
     author="Rodrigo Arenas",
     author_email="rodrigo.arenas456@gmail.com",
