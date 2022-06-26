@@ -24,7 +24,7 @@ Graph-Embeddings
 ################
 Graph embeddings for downstream tasks
 
-![graph_embeddings](https://raw.githubusercontent.com/rodrigo-arenas/graph-embeddings/main/docs/images/graph_embeddings.png)
+.. image:: https://raw.githubusercontent.com/rodrigo-arenas/Graph-Embeddings/main/docs/images/graph_embeddings.png?raw=true
 
 Installation:
 #############
