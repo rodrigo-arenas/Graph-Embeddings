@@ -57,7 +57,7 @@ Example:
    embedding_model = StackedNode2Vec()
    embedding_model.fit(graphs)
 
-   embedding_model.get_embeddings()  # ndarray with shape (5, 128, 2) - nodes, embedding_size, graphs
+   embedding_model.get_embeddings()  # ndarray with shape (2, 5, 128) - graphs, nodes, embedding_size
    embedding_model.get_dense_embeddings()  # ndarray with shape (2, 640) - graphs, nodes*embedding_size
 
 

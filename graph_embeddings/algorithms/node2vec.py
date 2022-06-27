@@ -73,7 +73,7 @@ class StackedNode2Vec:
         nodes_to_id = {node: i for i, node in enumerate(self.unique_nodes)}
 
         self.dense_embeddings = np.empty(shape=(n_graphs, n_nodes * self.node_embeddings_size))
-        self.embeddings = np.empty(shape=(n_nodes, self.node_embeddings_size, n_graphs))
+        self.embeddings = np.empty(shape=(n_graphs, n_nodes, self.node_embeddings_size))
 
         progress_bar = tqdm(file=sys.stdout, total=n_graphs)
         for i, graph in enumerate(graphs):
@@ -109,7 +109,7 @@ class StackedNode2Vec:
                 node_idx = nodes_to_id[node]
                 embeddings[node_idx] = np.array(model.wv.vectors[j])
 
-            self.embeddings[:, :, i] = embeddings
+            self.embeddings[i] = embeddings
             self.dense_embeddings[i] = embeddings.flatten()
 
         progress_bar.close()
@@ -121,7 +121,7 @@ class StackedNode2Vec:
         Returns
         -------
         embeddings: np.ndarray
-            Array with dimensions (n_nodes, node_embeddings_size, n_graphs) representing the
+            Array with dimensions (n_graphs, n_nodes, node_embeddings_size) representing the
             Node2Vec result of each node in each graph
         """
         return self.embeddings
