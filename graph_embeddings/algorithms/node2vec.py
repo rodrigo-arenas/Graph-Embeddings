@@ -7,6 +7,7 @@ from stellargraph import StellarGraph
 from stellargraph.data import BiasedRandomWalk
 from gensim.models import Word2Vec
 from tqdm.auto import tqdm
+from .utils import get_stellar_graph
 
 
 class StackedNode2Vec:
@@ -80,10 +81,8 @@ class StackedNode2Vec:
             progress_bar.update(1)
             embeddings = np.empty(shape=(n_nodes, self.node_embeddings_size))
             embeddings.fill(self.padding_value)
-            if isinstance(graph, nx.classes.graph.Graph):
-                stellar_graph = StellarGraph.from_networkx(graph)
-            else:
-                stellar_graph = graph
+
+            stellar_graph = get_stellar_graph(graph)
 
             graph_nodes = list(stellar_graph.nodes())
             random_walk = BiasedRandomWalk(stellar_graph)
