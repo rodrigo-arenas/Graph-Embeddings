@@ -76,9 +76,8 @@ class StackedNode2Vec:
         self.dense_embeddings = np.empty(shape=(n_graphs, n_nodes * self.node_embeddings_size))
         self.embeddings = np.empty(shape=(n_graphs, n_nodes, self.node_embeddings_size))
 
-        progress_bar = tqdm(file=sys.stdout, total=n_graphs)
-        for i, graph in enumerate(graphs):
-            progress_bar.update(1)
+        for i, graph in enumerate(tqdm(graphs, file=sys.stdout,)):
+
             embeddings = np.empty(shape=(n_nodes, self.node_embeddings_size))
             embeddings.fill(self.padding_value)
 
@@ -111,8 +110,6 @@ class StackedNode2Vec:
 
             self.embeddings[i] = embeddings
             self.dense_embeddings[i] = embeddings.flatten()
-
-        progress_bar.close()
 
         return self
 
