@@ -106,7 +106,8 @@ class StackedNode2Vec:
 
             for j, node in enumerate(graph_nodes):
                 node_idx = nodes_to_id[node]
-                embeddings[node_idx] = np.array(model.wv.vectors[j])
+                node_str = str(node)
+                embeddings[node_idx] = np.array(model.wv[node_str])
 
             self.embeddings[i] = embeddings
             self.dense_embeddings[i] = embeddings.flatten()
