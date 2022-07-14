@@ -103,7 +103,7 @@ class StackedNode2Vec:
                              sg=self.sg,
                              workers=self.n_jobs)
 
-            for j, node in enumerate(graph_nodes):
+            for node in graph_nodes:
                 node_idx = nodes_to_id[node]
                 node_str = str(node)
                 embeddings[node_idx] = np.array(model.wv[node_str])

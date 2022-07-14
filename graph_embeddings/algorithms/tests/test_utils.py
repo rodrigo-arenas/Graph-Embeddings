@@ -21,6 +21,13 @@ g_mixed = [g1, g3]
 def test_get_stellar_graph(graph):
     assert isinstance(get_stellar_graph(graph), StellarGraph)
 
+    with pytest.raises(Exception) as excinfo:
+        get_stellar_graph(6)
+
+    assert (
+            str(excinfo.value) == "graph should be an instance of networkx or StellarGraph object"
+    )
+
 
 @pytest.mark.parametrize(
     "graph_list",
