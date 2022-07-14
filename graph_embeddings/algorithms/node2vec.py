@@ -11,8 +11,9 @@ from .utils import get_stellar_graph
 
 
 class StackedNode2Vec:
-    def __init__(self, node_embeddings_size=128, padding_value=0, window=5,
-                 walk_length: int = 100, n=25, p=1, q=1, sg=1, n_jobs: int = 1):
+    def __init__(self, node_embeddings_size: int = 128, padding_value: int = 0, window: int = 5,
+                 walk_length: int = 100, n: int = 25, p: float = 1, q: float = 1, epochs: int = 10,
+                 algorithm: str = "skip-gram", n_jobs: int = 1):
         """
         Computes the Node2Vec representation of each node in a set of graphs.
 
@@ -33,8 +34,10 @@ class StackedNode2Vec:
             Defines probability, 1/p, of returning to source node
         q: float, default=1
             Defines probability, 1/q, for moving to a node away from the source node
-        sg: {0, 1}
-            Training algorithm: 1 for skip-gram; otherwise CBOW.
+        epochs: int, default=10
+            Number of iterations (epochs) over the corpus
+        algorithm: str, {"skip-gram", "CBOW"}
+            Training algorithm for Word2Vec.
         n_jobs: int, default=1
             Use these many worker threads to train the model (=faster training with multicore machines).
         """
@@ -45,9 +48,11 @@ class StackedNode2Vec:
         self.n = n
         self.p = p
         self.q = q
-        self.sg = sg
+        self.epochs = epochs
+        self.algorithm = algorithm
         self.n_jobs = n_jobs
 
+        self.sg = {"CBOW": 0, "skip-gram": 1}
         self.unique_nodes = None
         self.embeddings = None
         self.dense_embeddings = None
@@ -76,7 +81,7 @@ class StackedNode2Vec:
         self.dense_embeddings = np.empty(shape=(n_graphs, n_nodes * self.node_embeddings_size))
         self.embeddings = np.empty(shape=(n_graphs, n_nodes, self.node_embeddings_size))
 
-        for i, graph in enumerate(tqdm(graphs, file=sys.stdout,)):
+        for i, graph in enumerate(tqdm(graphs, file=sys.stdout, )):
 
             embeddings = np.empty(shape=(n_nodes, self.node_embeddings_size))
             embeddings.fill(self.padding_value)
@@ -100,7 +105,8 @@ class StackedNode2Vec:
                              vector_size=self.node_embeddings_size,
                              window=self.window,
                              min_count=0,
-                             sg=self.sg,
+                             epochs=self.epochs,
+                             sg=self.sg[self.algorithm],
                              workers=self.n_jobs)
 
             for node in graph_nodes:
